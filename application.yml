@@ -1,0 +1,13 @@
+serviceboot:
+  python_version: 3.7.8
+  cname: 力维行人检测
+  ename: person-detection-onnx
+  version: 1.0.0
+  port:
+    dev: 3330
+    prod: 80   # default: 80
+  has_web: no  # default: no
+  use_python_frontend: yes  # default: no
+  python_frontend_port: 8001
+  compile_python: no  # default: no
+  process_num: 1  # default: 1. 值为0时进程数等于当前主机CPU核数

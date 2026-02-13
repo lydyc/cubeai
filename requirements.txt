@@ -1,0 +1,11 @@
+# 声明Python版本
+# python==3.8.10
+#
+# 必须存在，不要删除
+serviceboot==2.1.11
+#
+# 在此添加模型特定的requirements
+cubetools==0.7.8
+gradio==3.28.3
+fastapi==0.95.1
+onnxruntime
