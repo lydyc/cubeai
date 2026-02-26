@@ -6,10 +6,19 @@ WORKDIR /serviceboot
 # 先复制全部文件
 COPY . .
 
+# 检查文件是否存在
+RUN ls -l picasso_install_gpu_x86_64.part_*
+
+RUN cat picasso_install_gpu_x86_64.part_* > picasso_install_gpu_x86_64.tar
+
+RUN tar -xf picasso_install_gpu_x86_64.tar
+
+RUN rm picasso_install_gpu_x86_64.tar picasso_install_gpu_x86_64.part_*
+
 # 合并、解压tar包并删除
-RUN cat picasso_install_gpu_x86_64.part_* > picasso_install_gpu_x86_64.tar && \
-    tar -xf picasso_install_gpu_x86_64.tar && \
-    rm picasso_install_gpu_x86_64.tar picasso_install_gpu_x86_64.part_*
+#RUN cat picasso_install_gpu_x86_64.part_* > picasso_install_gpu_x86_64.tar && \
+#    tar -xf picasso_install_gpu_x86_64.tar && \
+#    rm picasso_install_gpu_x86_64.tar picasso_install_gpu_x86_64.part_*
 
 # 安装依赖并编译
 RUN sh pip-install-reqs.sh && \
