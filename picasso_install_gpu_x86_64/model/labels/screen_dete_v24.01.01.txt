@@ -1,5 +1,0 @@
-screen_on
-screen_off
-screen_lock
-screen_back
-screen_unknown
