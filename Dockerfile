@@ -1,20 +1,16 @@
 FROM cubenet/python3810:0.0.3
 ENV LANG=C.UTF-8 APP_PROFILE=prod
 WORKDIR /serviceboot
-#ADD . /serviceboot
+ADD . /serviceboot
+RUN ls -l picasso_install_gpu_x86_64
 
 # 先复制全部文件
-COPY . .
-
+#COPY . .
 # 检查文件是否存在
-RUN ls -l picasso_install_gpu_x86_64.part_*
-
-RUN cat picasso_install_gpu_x86_64.part_* > picasso_install_gpu_x86_64.tar
-
-RUN tar -xf picasso_install_gpu_x86_64.tar
-
-RUN rm picasso_install_gpu_x86_64.tar picasso_install_gpu_x86_64.part_*
-
+#RUN ls -l picasso_install_gpu_x86_64.part_*
+#RUN cat picasso_install_gpu_x86_64.part_* > picasso_install_gpu_x86_64.tar
+#RUN tar -xf picasso_install_gpu_x86_64.tar
+#RUN rm picasso_install_gpu_x86_64.tar picasso_install_gpu_x86_64.part_*
 # 合并、解压tar包并删除
 #RUN cat picasso_install_gpu_x86_64.part_* > picasso_install_gpu_x86_64.tar && \
 #    tar -xf picasso_install_gpu_x86_64.tar && \
