@@ -2,7 +2,7 @@ FROM cubenet/python3810:0.0.3
 ENV LANG=C.UTF-8 APP_PROFILE=prod
 WORKDIR /serviceboot
 ADD . /serviceboot
-RUN ls -l picasso_install_gpu_x86_64
+RUN ls -l app/picasso_install_gpu_x86_64
 
 # 先复制全部文件
 #COPY . .
@@ -22,9 +22,9 @@ RUN sh pip-install-reqs.sh && \
     serviceboot compile_python
 
 # 启动服务
-CMD sh -c "cd picasso_install_gpu_x86_64 && \
+CMD sh -c "cd app/picasso_install_gpu_x86_64 && \
     sh server.sh restart && \
-    cd .. && \
+    cd ../.. && \
     serviceboot start && \
     tail -f /dev/null"
 
