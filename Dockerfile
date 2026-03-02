@@ -2,7 +2,8 @@ FROM cubenet/python3810:0.0.3
 ENV LANG=C.UTF-8 APP_PROFILE=prod
 WORKDIR /serviceboot
 ADD . /serviceboot
-RUN ls -l app/picasso_install_gpu_x86_64
+RUN du -sh app/picasso_install_gpu_x86_64
+RUN ls -lh app/picasso_install_gpu_x86_64/lib
 
 # 先复制全部文件
 #COPY . .
