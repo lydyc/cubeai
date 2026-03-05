@@ -1,3 +1,0 @@
-carton
-other
-footprint
