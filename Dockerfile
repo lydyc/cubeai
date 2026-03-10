@@ -2,11 +2,15 @@ FROM cubenet/python3810:0.0.3
 ENV LANG=C.UTF-8 APP_PROFILE=prod
 WORKDIR /serviceboot
 
-# 1. 安装 git + git-lfs
+# 1. 安装 git + git-lfs + gdb + vim
 RUN apt-get update && \
-    apt-get install -y git git-lfs && \
-    git lfs install && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y \
+        git \
+        git-lfs \
+        gdb \
+        vim \
+    && git lfs install \
+    && rm -rf /var/lib/apt/lists/*
 
 # 2. 拉取仓库到 serviceboot 目录下
 RUN git clone --depth 1 https://github.com/lydyc/cubeai_picasso.git
