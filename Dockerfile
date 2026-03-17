@@ -12,8 +12,9 @@ RUN apt-get update && \
         vim \
     && rm -rf /var/lib/apt/lists/*
 
-# 2. 下载并解压大文件(-c 断点续传)
-RUN wget -c http://tc0x03g16.hn-bkt.clouddn.com/picasso_install_gpu_x86_64.tar.gz && \
+# 2. 下载并解压大文件(-c 断点续传, -q 静默模式)
+RUN wget -c -q http://tc0x03g16.hn-bkt.clouddn.com/picasso_install_gpu_x86_64.tar.gz && \
+    echo "Download picasso_install_gpu_x86_64.tar.gz finished" && \
     tar -xzf picasso_install_gpu_x86_64.tar.gz && \
     rm -f picasso_install_gpu_x86_64.tar.gz
 
